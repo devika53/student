@@ -1,5 +1,6 @@
 package com.example.student.services;
 
+import com.example.student.advice.AdviceException;
 import com.example.student.dto.StudentDto;
 import com.example.student.entity.Course;
 import com.example.student.entity.Student;
@@ -45,7 +46,7 @@ public class StudentService {
     public List<Student> getNewStudent(String  name) {
 
         if (studentRepository.findByFirstName(name).isEmpty()){
-            throw new RuntimeException("Something went wrong");
+            throw new AdviceException.StudentNotfoundException();
         }
         return studentRepository.findByFirstName(name);
     }
