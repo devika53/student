@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class AdviceException {
     public static class StudentNotfoundException extends RuntimeException {
-        //private static final long serialVersionUID = 1L;
+
     }
     @ExceptionHandler(value = StudentNotfoundException.class)
     public ResponseEntity<Object> exception(StudentNotfoundException exception) {
